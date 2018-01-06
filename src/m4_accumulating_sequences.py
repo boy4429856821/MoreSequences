@@ -5,8 +5,8 @@ one item at a time, using the ACCUMULATOR pattern.
         sequences, namely by MUTATING their elements.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Coleman Weaver 
+"""  # Done
 
 import rosegraphics as rg
 
@@ -29,7 +29,7 @@ def main():
 def run_test_make_simple_list():
     """ Tests the   make_simple_list    function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # Done
     #   It TESTS the  make_simple_list  function defined below.
     #   Include at least **   2   ** tests.
     #
@@ -46,7 +46,17 @@ def run_test_make_simple_list():
     print('Expected:', expected)
     print('Actual:  ', actual)
 
-    # Test 2 (add your test here):
+    # Test 2:
+    expected = [9,10,11,12,13,14,15,16,17,18,19]
+    actual = make_simple_list(9, 19)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 3:
+    expected = [110,111,112,113,114,115,116,117,118,119,120]
+    actual = make_simple_list(110, 120)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
 
 def make_simple_list(m, n):
@@ -68,15 +78,19 @@ def make_simple_list(m, n):
       :type n: int
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
+    sequence = []
+    for k in range (m-1,n):
+        sequence = sequence + [k+1]
+    return sequence
 
 
 def run_test_make_simple_string():
     """ Tests the   make_simple_string    function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # Done
     #   It TESTS the  make_simple_string  function defined below.
     #   Include at least **   2   ** tests.
     #
@@ -86,6 +100,26 @@ def run_test_make_simple_string():
     print('--------------------------------------------------')
     print('Testing the   make_simple_string   function:')
     print('--------------------------------------------------')
+
+    # Test 1:
+    expected = " 0 1 2 3 4 5 6 7 8"
+    actual = make_simple_string(0, 8)
+    print('Expected: ', expected)
+    print('Actual:   ', actual)
+
+    # Test 2:
+    expected = ' 25 26 27 28 29 30 31 32'
+    actual = make_simple_string(25, 32)
+    print('Expected: ', expected)
+    print('Actual:   ', actual)
+
+    # Test 3:
+    expected = ' 59 60 61 62 63'
+    actual = make_simple_string(59, 63)
+    print('Expected: ', expected)
+    print('Actual:   ', actual)
+
+
 
 
 def make_simple_string(m, n):
@@ -109,15 +143,19 @@ def make_simple_string(m, n):
       :type n: int
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # Done
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
+    sequence = ' '
+    for k in range(m-1,n):
+        sequence = sequence + str(k + 1) + ' '
 
+    return sequence
 
 def run_test_make_less_simple_string():
     """ Tests the   make_less_simple_string    function. """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement this TEST function.
+    # Done
     #   It TESTS the  make_less_simple_string  function defined below.
     #   Include at least **   2   ** tests.
     #
@@ -127,6 +165,24 @@ def run_test_make_less_simple_string():
     print('--------------------------------------------------')
     print('Testing the   make_less_simple_string   function:')
     print('--------------------------------------------------')
+
+    # Test 1
+    expected = "0-1-2-3-4-5"
+    actual = make_less_simple_string(0,5)
+    print('Expected:  ', expected)
+    print('Actual:    ', actual)
+
+    # Test 2
+    expected = "12-13-14-15-16-17"
+    actual = make_less_simple_string(12,17)
+    print('Expected:  ', expected)
+    print('Actual:    ', actual)
+
+    # Test 3
+    expected = '10'
+    actual = make_less_simple_string(10,10)
+    print('Expected:  ', expected)
+    print('Actual:    ', actual)
 
 
 def make_less_simple_string(m, n):
@@ -152,9 +208,19 @@ def make_less_simple_string(m, n):
       :type n: int
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # Done
     #   Note that you should write its TEST function first (above).
     # -----------------------------------------------------------------
+    type = m-1
+    sequence = ' '
+    for k in range (type, n):
+        print(k,n,sequence)
+        if k+1 < n :
+            sequence = sequence + str(k+1) + '-'
+        if k+1 == n:
+            sequence = sequence + str(k+1)
+    return sequence
+
 
 
 def run_test_draw_shapes():
@@ -246,6 +312,10 @@ def draw_shapes(shapes, window):
     ####################################################################
     # ------------------------------------------------------------------
 
+    shapes =()
+    for k in range(len(shapes)):
+        shapes[k].attach_to(window)
+    window.render()
 
 def run_test_rectangles_from_circles():
     """ Tests the   rectangles_from_circles    function. """
